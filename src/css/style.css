@@ -55,7 +55,7 @@ li {
   height: 835px;
   width: 450px;
 
-  border-radius: 60px;
+  border-radius: 50px;
 
   -webkit-box-shadow: 35px 46px 59px 12px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 35px 46px 59px 12px rgba(0, 0, 0, 0.2);
@@ -65,6 +65,10 @@ li {
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
   border: 1px solid rgba(255, 255, 255, 0.089);
+}
+
+.app--container::-webkit-scrollbar {
+  display: none;
 }
 
 .start-up {
@@ -212,7 +216,6 @@ li {
 
 .current--weather img {
   width: 150px;
-  /* background-color: blanchedalmond; */
 }
 
 .current--date {
@@ -239,8 +242,6 @@ li {
   align-items: center;
   justify-content: center;
   position: relative;
-
-  margin-right: 10px;
 
   opacity: 0;
 
@@ -275,10 +276,6 @@ li {
   justify-content: space-around;
 
   background-color: rgba(255, 255, 255, 0.267);
-}
-
-.next--weather ul:last-child {
-  margin-right: 10px;
 }
 
 .next--weather ul::-webkit-scrollbar {
