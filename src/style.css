@@ -20,6 +20,7 @@
 body {
   background-image: url(/src/images/Rhosili-4.jpg);
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 
   height: calc(var(--vh, 1vh) * 100);
