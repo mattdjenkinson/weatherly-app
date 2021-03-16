@@ -20,7 +20,7 @@ const getJSON = async function (url) {
     const fetchWeth = fetch(url);
     const res = await fetchWeth;
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     if (!res.ok) throw new Error(`(${res.status})`);
     return data;
@@ -53,14 +53,12 @@ const app = async function (pos) {
     daily: data.daily.slice(1, 8),
   };
 
-  console.log(currentWeather.wind);
-
-  const locationNameApi = `http://api.positionstack.com/v1/reverse?access_key=4de62d9fc1af313ad42862a51f74b557&query=${latitude},${longitude}`;
-  const nameData = await getJSON(locationNameApi);
+  const locationNameApi = `https://geocode.xyz/${latitude},${longitude}?geoit=json`;
+  const userLocation = await getJSON(locationNameApi);
+  // console.log(newLocation);
 
   let cityName = {
-    city: nameData.data[0].region,
-    country: nameData.data[0].country,
+    city: userLocation.region,
   };
 
   const dateOptions = {
@@ -77,7 +75,7 @@ const app = async function (pos) {
     currentWeatherContainer.innerHTML = `
 
       <div class="current--date">
-      <p>${currDay}<br />${cityName.city}, ${cityName.country}</p>
+      <p>${currDay}<br />${cityName.city}</p>
     </div>
     <div class="current--temp">
       <div class="current-temp--description"><p>${
