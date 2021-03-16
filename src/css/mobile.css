@@ -13,11 +13,25 @@
     left: 0;
     position: relative;
 
-    height: 95%;
-    width: 95%;
+    height: 100%;
+    width: 100%;
+
+    border-radius: 0;
   }
 
   .current--weather img {
     width: 100px;
+  }
+
+  .details--weather li {
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 80px;
+
+    font-size: 1rem;
+
+    padding: 5px;
+
+    margin: 0 10px;
   }
 }
