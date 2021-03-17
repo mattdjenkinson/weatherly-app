@@ -1,3 +1,8 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
+import icons from "../icons/*.svg";
+
 // Viewport
 
 let vh = window.innerHeight * 0.01;
@@ -11,9 +16,10 @@ const currentDetailsContainer = document.querySelector(".details--weather");
 const nextWeatherContainer = document.querySelectorAll(".next--weather");
 const nextHours = document.querySelector("#next-hours");
 const nextDays = document.querySelector("#next-days");
-
 const startupCover = document.querySelector(".start-up");
 const title = document.querySelectorAll(".title");
+const startBtn = document.querySelector(".start-up img");
+const startText = document.querySelector(".start-up p");
 
 const getJSON = async function (url) {
   try {
@@ -55,7 +61,6 @@ const app = async function (pos) {
 
   const locationNameApi = `https://geocode.xyz/${latitude},${longitude}?geoit=json`;
   const userLocation = await getJSON(locationNameApi);
-  // console.log(newLocation);
 
   let cityName = {
     city: userLocation.region,
@@ -81,9 +86,9 @@ const app = async function (pos) {
       <div class="current-temp--description"><p>${
         currentWeather.description
       }</p></div>
-      <img src="/src/icons/${
-        currentWeather.icon
-      }.svg" alt="" class="current-temp--icon" />
+      <img src="${
+        icons[currentWeather.icon]
+      }" alt="" class="current-temp--icon" />
       <div class="current-temp--text"><p>${Math.round(
         currentWeather.temp
       )}°</p></div>
@@ -101,9 +106,11 @@ const app = async function (pos) {
       <p class="text-hour">${new Date(hour.dt * 1000)
         .toLocaleTimeString()
         .replace(/(\d{1,2}:\d{2}):\d{2}/, "$1")}</p>
-      <img src="/src/icons/${
-        hour.weather[0].icon
-      }.svg" width="40px" class="24-icon" />
+
+
+      <img src="${icons[hour.weather[0].icon]}" width="40px" class="24-icon" />
+
+
       <p class="24-temp">${Math.round(hour.temp)}°</p>
     </li>`
       );
@@ -119,9 +126,7 @@ const app = async function (pos) {
         <p class="text-hour">${new Date(
           day.dt * 1000
         ).toLocaleDateString("en-GB", { weekday: "short" })}</p>
-        <img src="/src/icons/${
-          day.weather[0].icon
-        }.svg" width="40px" class="24-icon" />
+        <img src="${icons[day.weather[0].icon]}" width="40px" class="24-icon" />
         <p class="24-temp">${Math.round(day.temp.max)}°</p>
       </li>
      `
@@ -183,8 +188,12 @@ const app = async function (pos) {
   currentDetailsContainer.style.opacity = "1";
 };
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(app);
-} else {
-  alert("Could not get location");
-}
+startBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (navigator.geolocation) {
+    startText.textContent = "Finding weather...";
+    navigator.geolocation.getCurrentPosition(app);
+  } else {
+    alert("Could not get location");
+  }
+});

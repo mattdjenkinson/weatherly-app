@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://use.typekit.net/xuf0pjv.css");
+
 *,
 *::before,
 *::after {
@@ -12,11 +15,6 @@
   --light-text-color: #cccccc;
 }
 
-@font-face {
-  font-family: "SF-Pro";
-  src: url("/src/fonts/SF-Pro.ttf");
-}
-
 body {
   background-image: url(/src/images/Rhosili-4.jpg);
   background-size: cover;
@@ -25,7 +23,7 @@ body {
 
   height: calc(var(--vh, 1vh) * 100);
 
-  font-family: SF-Pro;
+  font-family: "Open Sans";
   color: var(--main-text-color);
 }
 
@@ -95,6 +93,15 @@ li {
 .start-up img {
   -webkit-animation: heartbeat 5s ease-in-out infinite both;
   animation: heartbeat 5s ease-in-out infinite both;
+
+  cursor: pointer;
+}
+
+.start-up h1 {
+  position: absolute;
+  font-family: relation-one;
+  font-size: 4rem;
+  top: 10%;
 }
 
 @-webkit-keyframes heartbeat {
@@ -167,7 +174,6 @@ li {
 }
 
 .title {
-  color: var(--highlight-text-color);
   padding: 5px 0;
   opacity: 0;
   transition: all 1s;
@@ -216,10 +222,6 @@ li {
 
 .current--weather img {
   width: 150px;
-}
-
-.current--date {
-  color: var(--highlight-text-color);
 }
 
 .current-temp--description {

@@ -2,12 +2,19 @@
   "name": "weatherly",
   "version": "1.0.0",
   "description": "Weather App",
-  "default": "index.html",
+  "main": "index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "core-js": "^3.9.1",
+    "icons": "^1.0.0",
+    "src": "^1.1.2"
+  }
 }
