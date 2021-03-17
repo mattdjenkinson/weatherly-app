@@ -331,7 +331,7 @@ li {
   -moz-box-shadow: 35px 46px 59px 12px rgba(0, 0, 0, 0.2);
   box-shadow: 35px 46px 59px 12px rgba(0, 0, 0, 0.2);
 
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.185);
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
   border: 1px solid rgba(255, 255, 255, 0.089);
