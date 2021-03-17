@@ -16,7 +16,7 @@
 }
 
 body {
-  background-image: url(/src/images/Rhosili-4.jpg);
+  background-image: url(/src/images/sunset.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,7 +59,7 @@ li {
   -moz-box-shadow: 35px 46px 59px 12px rgba(0, 0, 0, 0.2);
   box-shadow: 35px 46px 59px 12px rgba(0, 0, 0, 0.2);
 
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.185);
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
   border: 1px solid rgba(255, 255, 255, 0.089);
@@ -179,30 +179,6 @@ li {
   transition: all 1s;
 }
 
-/* .title::before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 51%;
-  height: 2px;
-  width: 130px;
-  background-color: #5353537c;
-  margin-left: 20px;
-}
-
-.title::after {
-  content: "";
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 51%;
-  height: 2px;
-  width: 130px;
-  background-color: #5353537c;
-  margin-right: 20px;
-} */
-
 .current--weather {
   max-height: 40%;
   min-width: 100%;
@@ -277,7 +253,7 @@ li {
   align-items: center;
   justify-content: space-around;
 
-  background-color: rgba(255, 255, 255, 0.267);
+  background-color: rgba(209, 209, 209, 0.267);
 }
 
 .next--weather ul::-webkit-scrollbar {
@@ -320,8 +296,8 @@ li {
 }
 
 .details--weather li {
-  min-width: 120px;
-  min-height: 90px;
+  width: 120px;
+  height: 90px;
   padding: 10px;
   border-radius: 20px;
   margin: 5px;
@@ -331,7 +307,7 @@ li {
   align-items: center;
   justify-content: space-around;
 
-  background-color: rgba(255, 255, 255, 0.267);
+  background-color: rgba(209, 209, 209, 0.267);
 }
 
 .details-title {

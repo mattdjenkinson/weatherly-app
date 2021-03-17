@@ -17,21 +17,30 @@
     width: 100%;
 
     border-radius: 0;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
   }
 
   .current--weather img {
     width: 100px;
   }
 
+  .details--weather {
+    height: 30%;
+  }
+
   .details--weather li {
     min-width: 100px;
     max-width: 100px;
-    min-height: 80px;
+    height: 80px;
 
     font-size: 1rem;
 
     padding: 5px;
 
-    margin: 0 10px;
+    margin: 5 5px;
   }
 }

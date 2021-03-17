@@ -2,6 +2,7 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 
 import icons from "../icons/*.svg";
+import backgrounds from "../images/*.jpg";
 
 // Viewport
 
@@ -20,19 +21,24 @@ const startupCover = document.querySelector(".start-up");
 const title = document.querySelectorAll(".title");
 const startBtn = document.querySelector(".start-up img");
 const startText = document.querySelector(".start-up p");
+const body = document.querySelector("body");
 
 const getJSON = async function (url) {
   try {
-    const fetchWeth = fetch(url);
-    const res = await fetchWeth;
+    const fetchData = fetch(url);
+    const res = await fetchData;
     const data = await res.json();
     // console.log(data);
 
-    if (!res.ok) throw new Error(`(${res.status})`);
+    if (!res.ok) throw new Error(errorMessage());
     return data;
   } catch (err) {
     throw err;
   }
+};
+
+const errorMessage = function () {
+  startText.textContent = "Could not find location, please try again";
 };
 
 const app = async function (pos) {
@@ -58,6 +64,10 @@ const app = async function (pos) {
     hourly: data.hourly.slice(1, 26),
     daily: data.daily.slice(1, 8),
   };
+
+  const bg = `url(${backgrounds[currentWeather.icon]})`;
+
+  body.style.backgroundImage = bg;
 
   const locationNameApi = `https://geocode.xyz/${latitude},${longitude}?geoit=json`;
   const userLocation = await getJSON(locationNameApi);
@@ -144,6 +154,14 @@ const app = async function (pos) {
             )}°</p>
           </li>
           <li>
+          <p class="details-title">Sunrise</p>
+          <p class="details-description">${currentWeather.sunrise}</p>
+        </li>
+        <li>
+          <p class="details-title">Sunset</p>
+          <p class="details-description">${currentWeather.sunset}</p>
+        </li>
+          <li>
             <p class="details-title">Humidity</p>
             <p class="details-description">${currentWeather.humidity}%</p>
           </li>
@@ -157,14 +175,7 @@ const app = async function (pos) {
               currentWeather.wind
             )} MPH</p>
           </li>
-          <li>
-            <p class="details-title">Sunrise</p>
-            <p class="details-description">${currentWeather.sunrise}</p>
-          </li>
-          <li>
-            <p class="details-title">Sunset</p>
-            <p class="details-description">${currentWeather.sunset}</p>
-          </li>
+
         </ul>
 
 
@@ -194,6 +205,6 @@ startBtn.addEventListener("click", function (e) {
     startText.textContent = "Finding weather...";
     navigator.geolocation.getCurrentPosition(app);
   } else {
-    alert("Could not get location");
+    startText.textContent = "Could not find location, please try again";
   }
 });
