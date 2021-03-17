@@ -65,6 +65,7 @@ const app = async function (pos) {
     daily: data.daily.slice(1, 8),
   };
 
+  // Background changes
   const bg = `url(${backgrounds[currentWeather.icon]})`;
 
   body.style.backgroundImage = bg;
