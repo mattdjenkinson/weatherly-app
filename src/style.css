@@ -291,7 +291,7 @@ span {
 /* Details */
 
 .details--weather {
-  height: 25%;
+  min-height: 25%;
 
   display: flex;
   flex-direction: column;
@@ -304,6 +304,10 @@ span {
   margin: 0 15px;
 
   transition: all 1s;
+}
+
+.details--weather ul::-webkit-scrollbar {
+  display: none;
 }
 
 .details--weather ul {
@@ -377,6 +381,7 @@ span {
   }
 
   body {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -398,17 +403,13 @@ span {
     padding-bottom: 5px;
   }
 
-  .current--weather {
-    padding-top: 5px;
-  }
-
   .current--weather img {
-    width: 150px;
+    width: 100px;
   }
 
-  /* .details--weather {
-    height: 30%;
-  } */
+  .details--weather {
+    min-height: 30%;
+  }
 
   .details--weather li {
     min-width: 100px;
