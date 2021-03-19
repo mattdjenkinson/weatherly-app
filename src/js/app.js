@@ -29,7 +29,7 @@ const getJSON = async function (url) {
     const fetchData = fetch(url);
     const res = await fetchData;
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     if (!res.ok) throw new Error(errorMessage());
     return data;
