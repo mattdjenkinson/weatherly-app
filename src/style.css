@@ -410,17 +410,21 @@ span {
   }
 
   .details--weather {
-    min-height: 30%;
+    height: 20%;
   }
 
   .details--weather li {
-    width: 80px;
-    height: 70px;
+    min-width: 60px;
+    height: 60px;
 
     font-size: 1rem;
 
-    padding: 5px;
+    padding: 0 0px;
 
-    margin: 5px 5px;
+    margin: 0px 10px;
+
+    /* background-color: lawngreen; */
+
+    justify-content: center;
   }
 }

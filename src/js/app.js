@@ -22,7 +22,6 @@ const title = document.querySelectorAll(".title");
 const startBtn = document.querySelector(".start-up img");
 const startText = document.querySelector(".start-up p");
 const body = document.querySelector("body");
-const logo = document.querySelector(".logo");
 
 const getJSON = async function (url) {
   try {
