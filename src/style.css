@@ -191,7 +191,7 @@ li {
 }
 
 .current--weather {
-  max-height: 40%;
+  min-height: 40%;
   min-width: 100%;
 
   padding: 20px 0;
@@ -208,7 +208,7 @@ li {
 }
 
 .current--weather img {
-  width: 150px;
+  width: 175px;
 }
 
 .current-temp--description {
@@ -255,15 +255,18 @@ li {
 
   overflow-x: auto;
 
-  margin-left: 10px;
+  margin: 0 15px;
+
+  border-radius: 15px;
 }
 
 .next--weather li {
   min-width: 80px;
   max-height: 80px;
-  padding: 5px;
-  border-radius: 20px;
+  padding: 0 5px;
+  border-radius: 15px;
   margin: 5px;
+  margin-left: 0;
 
   display: flex;
   flex-direction: column;
@@ -298,9 +301,9 @@ span {
 
   opacity: 0;
 
-  transition: all 1s;
+  margin: 0 15px;
 
-  margin: -10px 0;
+  transition: all 1s;
 }
 
 .details--weather ul {
@@ -316,21 +319,23 @@ span {
   justify-content: space-around;
 
   overflow-x: auto;
+
+  background-color: rgba(209, 209, 209, 0.267);
+
+  border-radius: 15px;
 }
 
 .details--weather li {
   width: 120px;
   height: 90px;
   padding: 10px;
-  border-radius: 20px;
+
   margin: 5px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
-  background-color: rgba(209, 209, 209, 0.267);
 }
 
 .details-title {
