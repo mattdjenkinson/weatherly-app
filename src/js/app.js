@@ -197,8 +197,6 @@ const app = async function (pos) {
   });
   currentDetailsContainer.style.opacity = "1";
 
-  logo.style.display = "block";
-
   // Background changes
 
   let bg = `url(${backgrounds[currentWeather.icon]})`;
