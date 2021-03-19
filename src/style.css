@@ -22,7 +22,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 
-  height: calc(var(--vh, 1vh) * 100);
+  /* height: calc(var(--vh, 1vh) * 100); */
+  height: 100vh;
 
   font-family: "Open Sans";
   color: var(--main-text-color);
@@ -381,10 +382,11 @@ span {
   }
 
   body {
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow-y: hidden;
   }
   .app--container {
     top: 0;
@@ -412,9 +414,8 @@ span {
   }
 
   .details--weather li {
-    min-width: 100px;
-    max-width: 100px;
-    height: 80px;
+    width: 80px;
+    height: 70px;
 
     font-size: 1rem;
 
