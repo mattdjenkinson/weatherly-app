@@ -395,10 +395,11 @@ span {
     -moz-box-shadow: none;
     box-shadow: none;
     border: none;
+    padding-bottom: 5px;
   }
 
   .current--weather {
-    padding-top: 10px;
+    padding-top: 5px;
   }
 
   .current--weather img {
