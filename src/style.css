@@ -16,7 +16,8 @@
 }
 
 body {
-  background-image: url(/src/images/sunset.jpg);
+  background-image: url(images/01d.jpg);
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,11 +26,13 @@ body {
 
   font-family: "Open Sans";
   color: var(--main-text-color);
+
+  transition: all 0.5s;
 }
 
 a {
   text-decoration: none;
-  color: var(--main-text-color);
+  color: inherit;
 }
 
 li {
@@ -99,9 +102,14 @@ li {
 
 .start-up h1 {
   position: absolute;
-  font-family: relation-one;
+  font-family: moret;
+  font-weight: 700;
   font-size: 4rem;
   top: 10%;
+}
+
+.start-up p {
+  transition: all 1s;
 }
 
 @-webkit-keyframes heartbeat {
@@ -174,9 +182,12 @@ li {
 }
 
 .title {
-  padding: 5px 0;
+  padding: 10px 0;
   opacity: 0;
   transition: all 1s;
+
+  font-family: moret;
+  font-weight: 300;
 }
 
 .current--weather {
@@ -201,11 +212,17 @@ li {
 }
 
 .current-temp--description {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-family: moret;
+  font-weight: 700;
 }
 
 .current-temp--text {
   font-size: 3rem;
+  font-family: moret;
+  font-weight: 700;
+
+  margin-top: -10px;
 }
 
 /* Next 24 Hours/ 7 Days */
@@ -264,6 +281,10 @@ li {
   font-size: 0.75rem;
 }
 
+span {
+  opacity: 0.5;
+}
+
 /* Details */
 
 .details--weather {
@@ -278,6 +299,8 @@ li {
   opacity: 0;
 
   transition: all 1s;
+
+  margin: -10px 0;
 }
 
 .details--weather ul {
@@ -311,10 +334,13 @@ li {
 }
 
 .details-title {
-  color: var(--highlight-text-color);
+  opacity: 50%;
 }
 
 .photographer {
+  font-family: moret;
+  font-weight: 300;
+
   width: auto;
   height: auto;
 
@@ -335,4 +361,53 @@ li {
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
   border: 1px solid rgba(255, 255, 255, 0.089);
+}
+
+/* Mobile Styles */
+
+@media only screen and (max-width: 450px) {
+  .photographer {
+    display: none;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .app--container {
+    top: 0;
+    left: 0;
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+
+    border-radius: 0;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+
+  .current--weather img {
+    width: 100px;
+  }
+
+  .details--weather {
+    height: 30%;
+  }
+
+  .details--weather li {
+    min-width: 100px;
+    max-width: 100px;
+    height: 80px;
+
+    font-size: 1rem;
+
+    padding: 5px;
+
+    margin: 5 5px;
+  }
 }

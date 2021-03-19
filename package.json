@@ -4,8 +4,8 @@
   "description": "Weather App",
   "defult": "index.html",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html ./dist"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html ./dist"
   },
   "author": "",
   "license": "ISC",

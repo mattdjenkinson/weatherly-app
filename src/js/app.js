@@ -28,7 +28,7 @@ const getJSON = async function (url) {
     const fetchData = fetch(url);
     const res = await fetchData;
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
 
     if (!res.ok) throw new Error(errorMessage());
     return data;
@@ -64,11 +64,6 @@ const app = async function (pos) {
     hourly: data.hourly.slice(1, 26),
     daily: data.daily.slice(1, 8),
   };
-
-  // Background changes
-  const bg = `url(${backgrounds[currentWeather.icon]})`;
-
-  body.style.backgroundImage = bg;
 
   const locationNameApi = `https://geocode.xyz/${latitude},${longitude}?geoit=json`;
   const userLocation = await getJSON(locationNameApi);
@@ -138,7 +133,9 @@ const app = async function (pos) {
           day.dt * 1000
         ).toLocaleDateString("en-GB", { weekday: "short" })}</p>
         <img src="${icons[day.weather[0].icon]}" width="40px" class="24-icon" />
-        <p class="24-temp">${Math.round(day.temp.max)}°</p>
+        <p class="24-temp">${Math.round(day.temp.max)}° <span>${Math.round(
+          day.temp.min
+        )}°</span></p>
       </li>
      `
       );
@@ -198,7 +195,32 @@ const app = async function (pos) {
     cont.style.opacity = "1";
   });
   currentDetailsContainer.style.opacity = "1";
+
+  // Background changes
+
+  let bg = `url(${backgrounds[currentWeather.icon]})`;
+
+  if (
+    data.current.dt > data.current.sunrise + 3600000 &&
+    data.current.dt < data.current.sunrise - 3600000
+  )
+    bg = `url(${backgrounds[sunrise]})`;
+
+  if (
+    data.current.dt > data.current.sunset + 3600000 &&
+    data.current.dt < data.current.sunset - 3600000
+  )
+    bg = `url(${backgrounds[sunset]})`;
+
+  body.style.backgroundImage = bg;
+
+  // Text colour change
+
+  if (currentWeather.icon.includes("n"))
+    body.style.color = "var(--light-text-color)";
 };
+
+// Init App
 
 startBtn.addEventListener("click", function (e) {
   e.preventDefault();
