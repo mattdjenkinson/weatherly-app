@@ -407,6 +407,11 @@ span {
 
   .current--weather img {
     width: 100px;
+    margin-top: -10px;
+  }
+
+  .current--weather {
+    padding: 0;
   }
 
   .details--weather {
@@ -422,8 +427,6 @@ span {
     padding: 0 0px;
 
     margin: 0px 10px;
-
-    /* background-color: lawngreen; */
 
     justify-content: center;
   }
