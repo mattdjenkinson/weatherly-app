@@ -334,9 +334,25 @@ span {
 }
 
 .details-title {
-  opacity: 50%;
+  font-size: 0.75rem;
+  opacity: 0.5;
 }
 
+.logo {
+  font-family: moret;
+  font-weight: 700;
+
+  text-align: right;
+
+  position: absolute;
+
+  bottom: 120px;
+  right: 50px;
+
+  display: none;
+
+  transition: all 1s;
+}
 .photographer {
   font-family: moret;
   font-weight: 300;

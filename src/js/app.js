@@ -22,6 +22,7 @@ const title = document.querySelectorAll(".title");
 const startBtn = document.querySelector(".start-up img");
 const startText = document.querySelector(".start-up p");
 const body = document.querySelector("body");
+const logo = document.querySelector(".logo");
 
 const getJSON = async function (url) {
   try {
@@ -195,6 +196,8 @@ const app = async function (pos) {
     cont.style.opacity = "1";
   });
   currentDetailsContainer.style.opacity = "1";
+
+  logo.style.display = "block";
 
   // Background changes
 
