@@ -426,4 +426,8 @@ span {
 
     margin: 5 5px;
   }
+
+  .logo {
+    visibility: hidden;
+  }
 }
