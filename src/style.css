@@ -377,6 +377,7 @@ span {
   }
 
   body {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -386,7 +387,7 @@ span {
     left: 0;
     position: relative;
 
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
     width: 100%;
 
     border-radius: 0;
@@ -406,9 +407,9 @@ span {
     width: 100px;
   }
 
-  .details--weather {
+  /* .details--weather {
     height: 30%;
-  }
+  } */
 
   .details--weather li {
     min-width: 100px;
