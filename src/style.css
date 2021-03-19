@@ -16,7 +16,7 @@
 }
 
 body {
-  background-image: url(images/01d.jpg);
+  background-image: url(images/home.jpg);
 
   background-size: cover;
   background-position: center;
@@ -395,6 +395,10 @@ span {
     -moz-box-shadow: none;
     box-shadow: none;
     border: none;
+  }
+
+  .current--weather {
+    padding-top: 10px;
   }
 
   .current--weather img {
