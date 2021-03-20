@@ -23,6 +23,8 @@ const startBtn = document.querySelector(".start-up img");
 const startText = document.querySelector(".start-up p");
 const body = document.querySelector("body");
 
+// Function for getting data from weather API
+
 const getJSON = async function (url) {
   try {
     const fetchData = fetch(url);
@@ -37,6 +39,8 @@ const getJSON = async function (url) {
   }
 };
 
+// Error message
+
 const errorMessage = function () {
   startText.textContent = "Could not find location, please try again";
 };
@@ -46,6 +50,8 @@ const app = async function (pos) {
 
   const weatherApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=59dc2225b21e1a9f0d13b3bb1197da83`;
   const data = await getJSON(weatherApi);
+
+  // Data object
 
   let currentWeather = {
     temp: data.current.temp,
@@ -65,12 +71,16 @@ const app = async function (pos) {
     daily: data.daily.slice(1, 8),
   };
 
+  // Reverse GeoCoding for city name
+
   const locationNameApi = `https://geocode.xyz/${latitude},${longitude}?geoit=json`;
   const userLocation = await getJSON(locationNameApi);
 
   let cityName = {
     city: userLocation.region,
   };
+
+  // Date
 
   const dateOptions = {
     weekday: "long",
@@ -81,6 +91,10 @@ const app = async function (pos) {
 
   const date = new Date();
   const currDay = date.toLocaleDateString("en-GB", dateOptions);
+
+  /////// App rendering data ///////
+
+  // Render current weather
 
   const renderCurrentWeather = function () {
     currentWeatherContainer.innerHTML = `
@@ -103,6 +117,8 @@ const app = async function (pos) {
         `;
   };
 
+  // Render next 24 hours
+
   const renderNextHours = function () {
     currentWeather.hourly.forEach(function (hour) {
       nextHours.insertAdjacentHTML(
@@ -123,6 +139,8 @@ const app = async function (pos) {
     });
   };
 
+  // Render next 7 days
+
   const renderNextDays = function () {
     currentWeather.daily.forEach(function (day) {
       nextDays.insertAdjacentHTML(
@@ -141,6 +159,8 @@ const app = async function (pos) {
       );
     });
   };
+
+  // Render current weather details
 
   const renderDetailsWeather = function () {
     currentDetailsContainer.innerHTML = `
@@ -186,6 +206,8 @@ const app = async function (pos) {
   renderNextHours();
   renderDetailsWeather();
   renderNextDays();
+
+  // Start up style changes
 
   startupCover.style.display = "none";
   title.forEach((tit) => {
