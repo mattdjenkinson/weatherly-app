@@ -152,6 +152,12 @@ const app = async function (pos) {
             )}°</p>
           </li>
           <li>
+          <p class="details-title">Wind</p>
+          <p class="details-description">${Math.round(
+            currentWeather.wind
+          )} MPH</p>
+        </li>
+          <li>
           <p class="details-title">Sunrise</p>
           <p class="details-description">${currentWeather.sunrise}</p>
         </li>
@@ -167,12 +173,7 @@ const app = async function (pos) {
             <p class="details-title">UVI</p>
             <p class="details-description">${currentWeather.uvi}</p>
           </li>
-          <li>
-            <p class="details-title">Wind</p>
-            <p class="details-description">${Math.round(
-              currentWeather.wind
-            )} MPH</p>
-          </li>
+
 
         </ul>
 
